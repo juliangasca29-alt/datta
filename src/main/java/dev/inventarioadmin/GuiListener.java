@@ -89,7 +89,7 @@ final class GuiListener implements Listener {
         Player target = Bukkit.getPlayer(eh.target());
         if (target == null) {
             Msg.send(admin, "El jugador se desconectó.", NamedTextColor.RED);
-            Bukkit.getScheduler().runTask(plugin, admin::closeInventory);
+            Bukkit.getScheduler().runTask(plugin, () -> admin.closeInventory());
             return;
         }
         Inventory inv = e.getView().getTopInventory();
@@ -111,7 +111,7 @@ final class GuiListener implements Listener {
                     Msg.send(admin, "Usa Shift + clic para vaciar el inventario.", NamedTextColor.GRAY);
                 }
             }
-            case Editor.BTN_CLOSE -> Bukkit.getScheduler().runTask(plugin, admin::closeInventory);
+            case Editor.BTN_CLOSE -> Bukkit.getScheduler().runTask(plugin, () -> admin.closeInventory());
             default -> { }
         }
     }
@@ -155,7 +155,7 @@ final class GuiListener implements Listener {
             return;
         }
         if (raw == Menu.BTN_CLOSE) {
-            Bukkit.getScheduler().runTask(plugin, admin::closeInventory);
+            Bukkit.getScheduler().runTask(plugin, () -> admin.closeInventory());
             return;
         }
         java.util.UUID id = mh.players().get(raw);
