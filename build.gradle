@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+}
+
+group = 'dev.inventarioadmin'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://repo.papermc.io/repository/maven-public/' }
+}
+
+dependencies {
+    // Para fijar una build concreta usa por ejemplo: '26.3.build.49-alpha'
+    compileOnly 'io.papermc.paper:paper-api:26.3.build.+'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 25
+}
+
+jar {
+    archiveBaseName = 'InventarioAdmin'
+}

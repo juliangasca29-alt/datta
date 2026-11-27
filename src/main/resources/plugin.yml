@@ -1,0 +1,15 @@
+name: InventarioAdmin
+version: '1.0.0'
+main: dev.inventarioadmin.InventarioPlugin
+api-version: '26.3'
+description: Ver y editar el inventario y el cofre de Ender de los jugadores con ventanas de inventario.
+commands:
+  inventario:
+    description: Ver y editar inventarios de jugadores
+    usage: /<command> [menu|ver|ender|dar|quitar|vaciar]
+    aliases: [inv, invsee]
+    permission: inventario.admin
+permissions:
+  inventario.admin:
+    description: Permite ver y editar el inventario de otros jugadores
+    default: op
